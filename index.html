@@ -1,84 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estudio Gronda - Ingeniería Civil y Agrimensura</title>
-  <!-- Enlace al archivo CSS de Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Estilos personalizados -->
-  <style>
-    /* Agrega tus estilos personalizados aquí */
-    .jumbotron {
-      background-color: #f8f9fa;
-      /* Agrega aquí la imagen de fondo relacionada con la ingeniería y la topografía */
-      background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fes%2Fsearch%2Ftopografia&psig=AOvVaw3-w2qYtVjI3JQIUGLE9INc&ust=1708477129084000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPiN2LvbuIQDFQAAAAAdAAAAABAE');
-      background-size: cover;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>estudioGronda - Ingeniería Integral</title>
+    <style>
+        /* Estilos para la lista */
+        body {
+            background-color: black; /* Fondo negro */
+            color: white; /* Texto en blanco */
+            font-family: Arial, sans-serif;
+        }
+        .bullet-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .bullet-list li {
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .description {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-  <!-- Barra de navegación -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">Estudio Gronda</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Servicios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Acerca de</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <h1>estudioGronda</h1>
+    <p>Ingeniería integral</p>
+    <ul class="bullet-list">
+        <li onclick="toggleDescription(1)">Proyectos y Dirección Técnica</li>
+        <div class="description" id="desc1">Ofrecemos servicios de planificación y gestión de proyectos técnicos.</div>
+        <li onclick="toggleDescription(2)">Obras civiles</li>
+        <div class="description" id="desc2">Ejecutamos obras de construcción civil, desde edificios hasta infraestructuras.</div>
+        <!-- Agrega más elementos de la lista aquí -->
+    </ul>
 
-  <!-- Encabezado con imagen de fondo -->
-  <header class="jumbotron jumbotron-fluid">
-    <div class="container text-center">
-      <h1 class="display-4">Bienvenido a Estudio Gronda</h1>
-      <p class="lead">Ofrecemos servicios de agrimensura e ingeniería civil</p>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Conoce más</a>
-    </div>
-  </header>
-
-  <!-- Sección de servicios -->
-  <section class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <h2>Servicio de Agrimensura</h2>
-        <p>Descripción del servicio de agrimensura.</p>
-      </div>
-      <div class="col-md-4">
-        <h2>Servicio de Ingeniería Civil</h2>
-        <p>Descripción del servicio de ingeniería civil.</p>
-      </div>
-      <div class="col-md-4">
-        <h2>Otro Servicio</h2>
-        <p>Descripción de otro servicio que ofreces.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-dark text-light text-center py-3">
-    <div class="container">
-      <p>&copy; 2024 Estudio Gronda. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
-  <!-- Enlace al archivo JavaScript de Bootstrap (opcional) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleDescription(itemNumber) {
+            const description = document.getElementById(`desc${itemNumber}`);
+            description.style.display = description.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
