@@ -18,17 +18,31 @@
         h1 {
             color: #007bff; /* Título en azul */
             text-align: center;
-            padding: 2% 0; /* Ajuste de espaciado vertical */
+            padding: 5%;
             margin: 0;
-            font-size: 2.5vw; /* Tamaño de fuente en porcentaje */
+            font-size: 10px; /* Tamaño de fuente ajustado para dispositivos móviles */
+        
+        }
+        .title{
+            font-size: 2.5em;
         }
         .container {
-            max-width: 80%; /* Ancho máximo en porcentaje */
+            max-width: 80%;
             margin: 0 auto;
-            padding: 2%;
+            padding: 20px;
             background-color: white; /* Fondo blanco */
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            margin-top: -1%;
+        }
+        .contact{
+            max-width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            margin-top: 2%;
         }
         .bullet-list {
             list-style-type: none;
@@ -37,7 +51,7 @@
         .bullet-list li {
             cursor: pointer;
             margin-bottom: 10px;
-            font-size: 2vw; /* Tamaño de fuente en porcentaje */
+            font-size: 18px; /* Tamaño de fuente más grande */
             color: #6c757d; /* Texto gris */
             transition: color 0.3s; /* Transición de color al pasar el mouse */
         }
@@ -46,54 +60,56 @@
         }
         .description {
             display: none;
-            margin-left: 2%;
+            margin-left: 20px;
         }
         /* Estilos para el pie de página */
         footer {
             text-align: center;
-            margin-top: 2%;
-            font-size: 1.5vw; /* Tamaño de fuente en porcentaje */
+            margin-top: 20px;
+            font-size: 14px;
             color: #6c757d; /* Texto gris */
         }
         /* Estilos para la sección de contacto */
         .contact-section {
-            margin-top: 3%;
+            margin-top: 30px;
             text-align: center;
         }
         .contact-info {
-            font-size: 1.8vw; /* Tamaño de fuente en porcentaje */
-            margin-bottom: 1%;
+            font-size: 16px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
+<header>
+    <h1 class="title">estudioGronda</h1>
+</header>
 <body>
     <div class="container">
-        <h1 class="display-4">estudioGronda</h1>
         <p class="lead">Ingeniería integral</p>
-       <ul class="bullet-list">
-        <li onclick="toggleDescription(1)">Proyectos y Dirección Técnica</li>
-        <div class="description" id="desc1">Ofrecemos servicios de planificación y gestión de proyectos técnicos.</div>
-        <li onclick="toggleDescription(2)">Obras civiles</li>
-        <div class="description" id="desc2">Ejecutamos obras de construcción civil, desde edificios hasta infraestructuras.</div>
-        <li onclick="toggleDescription(3)">Mensuras y Verificaciones</li>
-        <div class="description" id="desc3">Realizamos mensuras y verificaciones de propiedades rurales y urbanas.</div>
-        <li onclick="toggleDescription(4)">Planos de P.H.</li>
-        <div class="description" id="desc4">Elaboramos planos de Propiedad Horizontal para edificios y condominios.</div>
-        <li onclick="toggleDescription(5)">Georreferenciación</li>
-        <div class="description" id="desc5">Determinamos la ubicación espacial de inmuebles en el Marco de Referencia Geodésico Nacional.</div>
-        <li onclick="toggleDescription(6)">Investigaciones catastrales</li>
-        <div class="description" id="desc6">Realizamos estudios y análisis de registros catastrales.</div>
-        <li onclick="toggleDescription(7)">Curvas de Nivel</li>
-        <div class="description" id="desc7">Generamos representaciones gráficas del relieve del terreno mediante curvas de nivel.</div>
-        <li onclick="toggleDescription(8)">Fotogrametría</li>
-        <div class="description" id="desc8">Utilizamos imágenes aéreas para medir y mapear objetos y terrenos.</div>
-        <li onclick="toggleDescription(9)">Diseño industrial</li>
-        <div class="description" id="desc9">Aplicamos principios de diseño para crear productos y sistemas industriales.</div>
-        <!-- Agrega más elementos de la lista aquí -->
-    </ul>
+        <ul class="bullet-list">
+            <li onclick="toggleDescription(1)">Proyectos y Dirección Técnica</li>
+            <div class="description" id="desc1">Ofrecemos servicios de planificación y gestión de proyectos técnicos.</div>
+            <li onclick="toggleDescription(2)">Obras civiles</li>
+            <div class="description" id="desc2">Ejecutamos obras de construcción civil, desde edificios hasta infraestructuras.</div>
+            <li onclick="toggleDescription(3)">Mensuras y Verificaciones</li>
+            <div class="description" id="desc3">Realizamos mensuras y verificaciones de propiedades rurales y urbanas.</div>
+            <li onclick="toggleDescription(4)">Planos de P.H.</li>
+            <div class="description" id="desc4">Elaboramos planos de Propiedad Horizontal para edificios y condominios.</div>
+            <li onclick="toggleDescription(5)">Georreferenciación</li>
+            <div class="description" id="desc5">Determinamos la ubicación espacial de inmuebles en el Marco de Referencia Geodésico Nacional.</div>
+            <li onclick="toggleDescription(6)">Investigaciones catastrales</li>
+            <div class="description" id="desc6">Realizamos estudios y análisis de registros catastrales.</div>
+            <li onclick="toggleDescription(7)">Curvas de Nivel</li>
+            <div class="description" id="desc7">Generamos representaciones gráficas del relieve del terreno mediante curvas de nivel.</div>
+            <li onclick="toggleDescription(8)">Fotogrametría</li>
+            <div class="description" id="desc8">Utilizamos imágenes aéreas para medir y mapear objetos y terrenos.</div>
+            <li onclick="toggleDescription(9)">Diseño industrial</li>
+            <div class="description" id="desc9">Aplicamos principios de diseño para crear productos y sistemas industriales.</div>
+            <!-- Agrega más elementos de la lista aquí -->
+        </ul>
     </div>
 
-    <div class="contact-section">
+    <div class="contact">
         <p class="contact-info">Teléfono: 381 5037359</p>
         <p class="contact-info">Email: jorgegronda@gmail.com</p>
     </div>
