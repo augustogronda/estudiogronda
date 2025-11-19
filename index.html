@@ -1,131 +1,752 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>estudioGronda - Ingeniería Integral</title>
-    <!-- Agregar Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Augusto Gronda | QA Engineer Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Augusto Gronda, a QA Engineer specializing in Test Automation, API Testing, and CI/CD.">
+    <link rel="canonical" href="https://gronda.dev.ar">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gronda.dev.ar">
+    <meta property="og:title" content="Augusto Gronda | QA Engineer Portfolio">
+    <meta property="og:description"
+        content="Senior QA Engineer specializing in Test Architecture, Scalable Automation, and CI/CD Integration.">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* Estilos personalizados */
+        :root {
+            /* Premium Dark Theme Palette */
+            --bg-primary: #0f172a;
+            /* Deep Slate */
+            --bg-secondary: #1e293b;
+            /* Lighter Slate */
+            --bg-card: rgba(30, 41, 59, 0.7);
+            /* Glassy Card */
+            --accent: #38bdf8;
+            /* Sky Blue */
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --text-main: #f1f5f9;
+            /* Off-white */
+            --text-muted: #94a3b8;
+            /* Slate Grey */
+            --border: rgba(255, 255, 255, 0.05);
+            --nav-bg: rgba(15, 23, 42, 0.85);
+
+            --font-main: 'Inter', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
         body {
-            background-color: #f8f9fa; /* Fondo gris claro */
-            color: #343a40; /* Texto oscuro */
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: var(--font-main);
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.03) 0%, transparent 20%);
         }
-        h1 {
-            color: #007bff; /* Título en azul */
-            text-align: center;
-            padding: 5%;
-            margin: 0;
-            font-size: 10px; /* Tamaño de fuente ajustado para dispositivos móviles */
-        
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
         }
-        .title{
-            font-size: 2.5em;
+
+        ul {
+            list-style: none;
         }
-        .container {
-            max-width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white; /* Fondo blanco */
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-            margin-top: -1%;
+
+        /* --- Navigation --- */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 1.2rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .contact{
-            max-width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white; /* Fondo blanco */
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-            margin-top: 2%;
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--text-main), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .bullet-list {
-            list-style-type: none;
-            padding: 0;
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
         }
-        .bullet-list li {
-            cursor: pointer;
-            margin-bottom: 10px;
-            font-size: 18px; /* Tamaño de fuente más grande */
-            color: #6c757d; /* Texto gris */
-            transition: color 0.3s; /* Transición de color al pasar el mouse */
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            position: relative;
         }
-        .bullet-list li:hover {
-            color: #007bff; /* Color azul al pasar el mouse */
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
         }
-        .description {
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
             display: none;
-            margin-left: 20px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-main);
         }
-        /* Estilos para el pie de página */
+
+        /* --- Hero Section --- */
+        header {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            position: relative;
+        }
+
+        .hero-subtitle {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        h1 span {
+            color: var(--text-muted);
+        }
+
+        .hero-description {
+            max-width: 600px;
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--bg-primary);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 2px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* --- General Section Styles --- */
+        section {
+            padding: 6rem 10%;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .section-line {
+            height: 1px;
+            background: var(--border);
+            flex-grow: 1;
+            max-width: 300px;
+        }
+
+        /* --- About --- */
+        .about-content {
+            max-width: 800px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* --- Skills --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .skill-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* --- Experience --- */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .job-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .job-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 4px var(--bg-primary);
+        }
+
+        .job-header {
+            margin-bottom: 1rem;
+        }
+
+        .job-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .job-company {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .job-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+            font-family: monospace;
+        }
+
+        .job-desc {
+            color: var(--text-muted);
+        }
+
+        .job-desc ul {
+            list-style: none;
+        }
+
+        .job-desc li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .job-desc li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* --- Education --- */
+        .edu-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 600px;
+        }
+
+        /* --- Contact --- */
+        .contact-container {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-text {
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .social-links a {
+            font-size: 1.8rem;
+            color: var(--text-muted);
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
         footer {
             text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #6c757d; /* Texto gris */
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
         }
-        /* Estilos para la sección de contacto */
-        .contact-section {
-            margin-top: 30px;
-            text-align: center;
+
+        /* --- Animations --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        .contact-info {
-            font-size: 16px;
-            margin-bottom: 10px;
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            section {
+                padding: 4rem 6%;
+            }
+
+            header {
+                padding: 0 6%;
+            }
+
+            .hamburger {
+                display: block;
+                z-index: 1001;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: 70%;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
         }
     </style>
 </head>
-<header>
-    <h1 class="title">estudioGronda</h1>
-</header>
+
 <body>
-    <div class="container">
-        <p class="lead">Ingeniería integral</p>
-        <ul class="bullet-list">
-            <li onclick="toggleDescription(1)">Proyectos y Dirección Técnica</li>
-            <div class="description" id="desc1">Ofrecemos servicios de planificación y gestión de proyectos técnicos.</div>
-            <li onclick="toggleDescription(2)">Obras civiles</li>
-            <div class="description" id="desc2">Ejecutamos obras de construcción civil, desde edificios hasta infraestructuras.</div>
-            <li onclick="toggleDescription(3)">Mensuras y Verificaciones</li>
-            <div class="description" id="desc3">Realizamos mensuras y verificaciones de propiedades rurales y urbanas.</div>
-            <li onclick="toggleDescription(4)">Planos de P.H.</li>
-            <div class="description" id="desc4">Elaboramos planos de Propiedad Horizontal para edificios y condominios.</div>
-            <li onclick="toggleDescription(5)">Georreferenciación</li>
-            <div class="description" id="desc5">Determinamos la ubicación espacial de inmuebles en el Marco de Referencia Geodésico Nacional.</div>
-            <li onclick="toggleDescription(6)">Investigaciones catastrales</li>
-            <div class="description" id="desc6">Realizamos estudios y análisis de registros catastrales.</div>
-            <li onclick="toggleDescription(7)">Curvas de Nivel</li>
-            <div class="description" id="desc7">Generamos representaciones gráficas del relieve del terreno mediante curvas de nivel.</div>
-            <li onclick="toggleDescription(8)">Fotogrametría</li>
-            <div class="description" id="desc8">Utilizamos imágenes aéreas para medir y mapear objetos y terrenos.</div>
-            <li onclick="toggleDescription(9)">Diseño industrial</li>
-            <div class="description" id="desc9">Aplicamos principios de diseño para crear productos y sistemas industriales.</div>
-            <!-- Agrega más elementos de la lista aquí -->
-        </ul>
-    </div>
 
-    <div class="contact">
-        <p class="contact-info">Teléfono: 381 5037359</p>
-        <p class="contact-info">Email: jorgegronda@gmail.com</p>
-    </div>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Augusto Gronda.</div>
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="#about" onclick="closeMenu()">About</a>
+            <a href="#skills" onclick="closeMenu()">Skills</a>
+            <a href="#experience" onclick="closeMenu()">Experience</a>
+            <a href="#contact" onclick="closeMenu()">Contact</a>
+            <a href="#" class="btn-outline"
+                style="padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.9rem;">Resume</a>
+        </div>
+    </nav>
 
-    <footer>Todos los derechos reservados estudioGronda</footer>
+    <!-- Hero -->
+    <header id="home">
+        <div class="fade-in">
+            <p class="hero-subtitle">Hi, my name is</p>
+            <h1>Augusto Gronda.<br><span>I engineer reliability.</span></h1>
+            <p class="hero-description">
+                Senior QA Engineer specializing in <strong>Test Architecture</strong>, <strong>Scalable
+                    Automation</strong>, and <strong>CI/CD Integration</strong>. Currently driving quality engineering
+                at <span style="color: var(--accent)">Sovos</span> to accelerate delivery while maintaining the highest
+                standards of reliability.
+            </p>
+            <div class="cta-group">
+                <a href="#experience" class="btn btn-primary">View Experience</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+    </header>
 
-    <!-- Agregar Bootstrap JS (opcional) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- About -->
+    <section id="about">
+        <div class="section-header fade-in">
+            <h2 class="section-title">About Me</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="about-content fade-in">
+            <p>
+                I am a results-driven engineering professional with a passion for building robust software ecosystems.
+                Since 2021, I've honed a problem-solving mindset that I now apply to <strong>Quality Assurance
+                    Strategy</strong> and <strong>Test Automation</strong>.
+            </p>
+            <br>
+            <p>
+                Currently, I drive quality initiatives at a <span style="color: var(--accent)">global tax compliance
+                    leader</span>. My expertise lies in bridging the gap between development and operations, ensuring
+                that quality is baked into every stage of the SDLC. I thrive in collaborative environments where I can
+                mentor teams and optimize pipelines.
+            </p>
+            <br>
+            <p>
+                My technical arsenal includes <strong>Selenium</strong>, <strong>Playwright</strong>, and <strong>Robot
+                    Framework</strong> for UI, alongside <strong>Rest Assured</strong> for API validation. I leverage
+                <strong>Azure DevOps</strong> to orchestrate seamless CI/CD workflows.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="skills-grid fade-in">
+            <div class="skill-card"><i class="fas fa-chess-board"></i>
+                <div class="skill-name">Test Strategy</div>
+            </div>
+            <div class="skill-card"><i class="fas fa-sync"></i>
+                <div class="skill-name">CI/CD Pipelines</div>
+            </div>
+            <div class="skill-card"><i class="fas fa-robot"></i>
+                <div class="skill-name">Test Automation</div>
+            </div>
+            <div class="skill-card"><i class="fas fa-network-wired"></i>
+                <div class="skill-name">API Testing</div>
+            </div>
+
+            <div class="skill-card"><i class="fas fa-code"></i>
+                <div class="skill-name">Java & Python</div>
+            </div>
+            <div class="skill-card"><i class="fas fa-play"></i>
+                <div class="skill-name">Playwright</div>
+            </div>
+            <div class="skill-card"><i class="fas fa-cogs"></i>
+                <div class="skill-name">Robot Framework</div>
+            </div>
+            <div class="skill-card"><i class="fas fa-check-circle"></i>
+                <div class="skill-name">Rest Assured</div>
+            </div>
+
+            <div class="skill-card"><i class="fab fa-microsoft"></i>
+                <div class="skill-name">Azure DevOps</div>
+            </div>
+            <div class="skill-card"><i class="fas fa-database"></i>
+                <div class="skill-name">SQL & Data</div>
+            </div>
+            <div class="skill-card"><i class="fas fa-mobile-alt"></i>
+                <div class="skill-name">Mobile Testing</div>
+            </div>
+            <div class="skill-card"><i class="fas fa-users"></i>
+                <div class="skill-name">Agile Leadership</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="timeline fade-in">
+
+            <!-- Job 1 -->
+            <div class="job-item">
+                <div class="job-header">
+                    <div class="job-title">QA Engineer III</div>
+                    <div class="job-company">Sovos</div>
+                    <div class="job-meta">Oct 2024 – Present | Remote</div>
+                </div>
+                <div class="job-desc">
+                    <ul>
+                        <li><strong>Spearhead</strong> quality assurance initiatives for enterprise-grade tax compliance
+                            software, ensuring high availability and accuracy.</li>
+                        <li><strong>Architect and implement</strong> scalable automation frameworks, reducing regression
+                            testing time and increasing deployment frequency.</li>
+                        <li><strong>Champion</strong> customer-centric development by integrating feedback loops
+                            directly into the testing strategy.</li>
+                        <li><strong>Orchestrate</strong> cross-functional collaboration between Dev, Product, and Ops to
+                            identify risks early and streamline the release process.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="job-item">
+                <div class="job-header">
+                    <div class="job-title">QA Engineer II</div>
+                    <div class="job-company">Sovos</div>
+                    <div class="job-meta">Oct 2023 – Oct 2024 | Argentina</div>
+                </div>
+                <div class="job-desc">
+                    <ul>
+                        <li><strong>Optimized</strong> CI/CD pipelines in Azure DevOps, enabling continuous testing and
+                            faster feedback for developers.</li>
+                        <li><strong>Designed</strong> comprehensive E2E testing strategies that increased test coverage
+                            by 40%.</li>
+                        <li><strong>Led</strong> code reviews and technical mentorship sessions to uphold coding
+                            standards and best practices within the QA team.</li>
+                        <li><strong>Resolved</strong> critical technical bottlenecks by partnering with architecture
+                            teams to enhance system testability.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="job-item">
+                <div class="job-header">
+                    <div class="job-title">QA Engineer</div>
+                    <div class="job-company">Sovos</div>
+                    <div class="job-meta">Feb 2022 – Oct 2023 | Argentina</div>
+                </div>
+                <div class="job-desc">
+                    <ul>
+                        <li><strong>Implemented</strong> robust test automation suites using Selenium and Robot
+                            Framework for critical ERP integrations (Netsuite, Oracle).</li>
+                        <li><strong>Executed</strong> extensive API validation using Postman and Rest Assured, ensuring
+                            seamless data interoperability.</li>
+                        <li><strong>Documented</strong> technical artifacts and test plans, improving knowledge sharing
+                            and onboarding processes.</li>
+                        <li><strong>Automated</strong> repetitive manual tasks, freeing up 20% of team capacity for
+                            exploratory testing.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Job 4 -->
+            <div class="job-item">
+                <div class="job-header">
+                    <div class="job-title">QC Analyst</div>
+                    <div class="job-company">Globant</div>
+                    <div class="job-meta">Jan 2021 – Jan 2022 | Argentina</div>
+                </div>
+                <div class="job-desc">
+                    <ul>
+                        <li><strong>Executed</strong> rigorous manual testing for high-traffic iOS and Android
+                            applications, ensuring a flawless user experience.</li>
+                        <li><strong>Managed</strong> defect lifecycles in Jira, providing detailed reproduction steps to
+                            accelerate developer fixes.</li>
+                        <li><strong>Validated</strong> data integrity in non-relational databases (MongoDB) to support
+                            complex backend logic.</li>
+                        <li><strong>Collaborated</strong> in Agile ceremonies, contributing to sprint planning and
+                            retrospective improvements.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Education</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="edu-card fade-in">
+            <h3 style="color: var(--text-main); margin-bottom: 0.5rem;">Geodetic and Geophysical Engineering</h3>
+            <p style="color: var(--accent); margin-bottom: 1rem;">National University of Tucumán</p>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">March 2014 - Present | Thesis Pending</p>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="contact-container fade-in">
+            <p class="hero-subtitle">What's Next?</p>
+            <h2 style="font-size: 3rem; margin-bottom: 1.5rem; font-weight: 800;">Get In Touch</h2>
+            <p class="contact-text">
+                I'm currently looking for new opportunities, and my inbox is always open. Whether you have a question or
+                just want to say hi, I'll try my best to get back to you!
+            </p>
+            <a href="mailto:augustogronda@gmail.com" class="btn btn-primary"
+                style="padding: 1rem 3rem; font-size: 1.1rem;">Say Hello</a>
+
+            <div class="social-links">
+                <a href="https://linkedin.com/in/augustogronda/" target="_blank" title="LinkedIn"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="tel:+543813018645" title="Phone"><i class="fas fa-phone"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Augusto Gronda.</p>
+    </footer>
 
     <script>
-        function toggleDescription(itemNumber) {
-            const description = document.getElementById(`desc${itemNumber}`);
-            description.style.display = description.style.display === 'block' ? 'none' : 'block';
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        function closeMenu() {
+            navLinks.classList.remove('active');
+            hamburger.querySelector('i').classList.remove('fa-times');
+            hamburger.querySelector('i').classList.add('fa-bars');
         }
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
     </script>
 </body>
+
 </html>

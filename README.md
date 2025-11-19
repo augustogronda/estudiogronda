@@ -1,2 +1,2 @@
-# estudiogronda
-Estudio de ingenieria Gronda 
+# CV Augusto Gronda                 
+CV Augusto Gronda
