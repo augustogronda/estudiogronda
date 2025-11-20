@@ -95,6 +95,7 @@
             letter-spacing: -0.5px;
             background: linear-gradient(135deg, var(--text-main), var(--accent));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -422,6 +423,16 @@
         }
 
         /* --- Mobile Responsiveness --- */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 4rem;
+            }
+
+            section {
+                padding: 5rem 8%;
+            }
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 3rem;
@@ -468,6 +479,33 @@
             .cta-group .btn {
                 width: 100%;
                 justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 1rem;
+            }
+
+            .skill-card {
+                padding: 1rem;
+            }
+
+            .job-item {
+                padding-left: 2rem;
+            }
+
+            .job-title {
+                font-size: 1.2rem;
             }
         }
     </style>
